@@ -36,18 +36,15 @@
         $username=$_POST["username"];
         $password=$_POST["password"];
 
-        $sql="INSERT INTO admin SET
-            full_name=$fullname,
-            username=$username,
-            password=$password
-            ";
+        $sql="INSERT INTO admin (full_name, username, password)
+           VALUES ('$fullname', '$username', '$password')";
         
-        $con=mysqli_connect('localhost','root','') or die(mysqli_error());
-        $db_select=mysqli_select_db($con,'food-order') or die(mysqli_error());
-
-        //$res=mysqli_query($con,$sql) or die(mysqli_error());
-
-        echo $sql;
+       
+        $res=mysqli_query($con,$sql) or die(mysqli_error($con));
+        if($res==true){
+            echo "Data inserted";
+        }else echo "Data insertion failed";
+        
     }else
     {
         echo "Button not clicked";
