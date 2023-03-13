@@ -1,4 +1,6 @@
 <?php 
+//constant.php is included in menu.php
+//and menu.php is added to all the pages
 session_start();
 
 define('SITEURL','http://localhost/food-order-website/');
