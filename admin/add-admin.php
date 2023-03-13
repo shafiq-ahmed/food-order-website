@@ -41,12 +41,23 @@
         
        
         $res=mysqli_query($con,$sql) or die(mysqli_error($con));
-        if($res==true){
-            echo "Data inserted";
-        }else echo "Data insertion failed";
+        if($res==true)
+        {
+            $_SESSION['add']="Admin added successfully";
+
+            header('location:'.SITEURL.'admin/manage-admin.php');
+        }else 
+        {
+            $_SESSION['add']="Admin isertion failed";
+
+            header('location:'.SITEURL.'admin/add-admin.php');
+        }
         
     }else
     {
-        echo "Button not clicked";
+        if(isset($_SESSION['add'])){
+            echo $_SESSION['add'];
+            unset($_SESSION['add']);
+        }
     }
 ?>
