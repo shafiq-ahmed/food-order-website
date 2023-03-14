@@ -121,3 +121,11 @@ table tr td{
 .btn-secondary:hover{
     background-color:  #009432;
 }
+
+/*Login*/
+.login{
+    border: 1px solid grey;
+    width: 30%;
+    margin: 5% auto;
+    padding: 2%;
+}
