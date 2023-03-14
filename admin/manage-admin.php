@@ -9,10 +9,16 @@
                 <?php 
                     //displaying succesfull add message after redirection from
                     //add admin page
-                    if(isset($_SESSION['add'])){
+                    if(isset($_SESSION['add']))
+                    {
                         echo $_SESSION['add'];
                         unset($_SESSION['add']);
+                    }elseif(isset($_SESSION['operationMsg']))
+                    {
+                        echo $_SESSION['operationMsg'];
+                        unset($_SESSION['operationMsg']);
                     }
+
                 ?>
 
                 </br></br>
@@ -48,7 +54,7 @@
                                         <td><?php echo $fullName?></td>
                                         <td><?php echo $username?></td>
                                         <td>
-                                            <a href="#" class="btn-secondary">Update Admin</a> 
+                                            <a href="<?php echo SITEURL."admin/update-admin.php?id=$id"?>" class="btn-secondary">Update Admin</a> 
                                             <a href="<?php echo SITEURL;?>admin/delete-admin.php?id=<?php echo $id;?>" class="btn-danger">Delete Admin</a>
                                         </td>
                                     </tr>

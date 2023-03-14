@@ -9,11 +9,11 @@
 
       if($res==true)
       {
-        $_SESSION['add']="Admin deleted successfully";
+        $_SESSION['operationMsg']="Admin deleted successfully";
         
       }else
       {
-        $_SESSION['add']=mysqli_error($con);
+        $_SESSION['operationMsg']=mysqli_error($con);
       }
       header('location:'.SITEURL.'admin/manage-admin.php');
 ?>
