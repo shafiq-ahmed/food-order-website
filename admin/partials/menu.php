@@ -1,4 +1,6 @@
-<?php include "../config/constants.php";?>
+<?php include "../config/constants.php";
+      include "access.php";
+?>
 
 <html>
     <head>

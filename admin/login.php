@@ -40,7 +40,7 @@
             echo $row['id']."<br>";
             echo $row['username']."<br>";
             echo $row['password']."<br>";*/
-
+            $_SESSION['user']=$username;
             header('location:'.SITEURL.'admin/index.php');
         }else
         {
