@@ -64,7 +64,7 @@
                 VALUES ('$title', '$isFeatured', '$isActive')";
 
                 $res=mysqli_query($con,$sql) or die(mysqli_error($con));
-
+                $_SESSION['add']='<h3>Category added successfully</h3>';
                 header('location:'.SITEURL.'admin/manage-category.php');
             }
         ?>
