@@ -12,14 +12,18 @@
         }
             
     ?>
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <table class="tbl-30">
                 <tr>
                     <td>Title</td>
                     <td>:</td>
                     <td><input type="text" name="title"></td>
                 </tr>
-
+                <tr>
+                    <td>Image</td>
+                    <td>:</td>
+                    <td> <input type="file" name="image"></td>
+                </tr>
                 <tr>
                     <td>Featured</td>
                     <td>:</td>
@@ -56,12 +60,32 @@
                     $_SESSION['no-title']='<h3>Title cannot be empty</h3>';
                     header('location:'.SITEURL.'admin/add-category.php');
                 }
+
+                if(isset($_FILES['image']['name']))
+                {
+                    $imageName=$_FILES['image']['name'];
+                    $sourcePath=$_FILES['image']['tmp_name'];
+                    $destinationPath="../images/category/".$imageName;
+                    $upload=move_uploaded_file($sourcePath,$destinationPath);
+
+                    if($upload==false)
+                    {
+                        $_SESSION['upload']="<h3>The file could not be uploaded</h3>";
+                        header('location:'.SITEURL.'admin/add-category.php');
+                    }
+                }else
+                {
+                    $imageName="";
+                }
                 echo $title=$_POST['title'];
                 echo $isFeatured=$_POST['featured'];
                 echo $isActive=$_POST['active'];
-
-                $sql="INSERT INTO category (title, featured, active)
-                VALUES ('$title', '$isFeatured', '$isActive')";
+                
+                //print_r($_FILES['image']);
+                //die();
+                
+                $sql="INSERT INTO category (title,image_name, featured, active)
+                VALUES ('$title','$imageName', '$isFeatured', '$isActive')";
 
                 $res=mysqli_query($con,$sql) or die(mysqli_error($con));
                 $_SESSION['add']='<h3>Category added successfully</h3>';
