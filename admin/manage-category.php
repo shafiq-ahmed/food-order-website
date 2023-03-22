@@ -34,6 +34,7 @@
                                 $title=$row['title'];
                                 $featured=$row['featured'];
                                 $active=$row['active'];
+                                $id=$row['id'];
                             
                     ?>
                     <tr>
@@ -42,7 +43,7 @@
                         <td><?php echo $featured;?></td>
                         <td><?php echo $active;?></td>
                         <td>
-                            <a href="#" class="btn-secondary">Update Category</a> 
+                            <a href="<?php echo SITEURL.'admin/update-category.php?id='.$id;?>" class="btn-secondary">Update Category</a> 
                             <a href="#" class="btn-danger">Delete Category</a>
                         </td>
                     </tr>

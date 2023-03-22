@@ -1,9 +1,11 @@
 <?php include "partials/menu.php";?>
 <div class="main-content">
     <div class="wrapper">
-        <h1>Add Category</h1>
+        <h1>Update Category</h1>
         <br>
-        
+        <?php
+            echo $id=$_GET['id'];
+        ?>
         <form action="" method="post">
             <table class="tbl-30">
                 <tr>
