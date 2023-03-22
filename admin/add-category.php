@@ -59,6 +59,13 @@
                 echo $title=$_POST['title'];
                 echo $isFeatured=$_POST['featured'];
                 echo $isActive=$_POST['active'];
+
+                $sql="INSERT INTO category (title, featured, active)
+                VALUES ('$title', '$isFeatured', '$isActive')";
+
+                $res=mysqli_query($con,$sql) or die(mysqli_error($con));
+
+                header('location:'.SITEURL.'admin/manage-category.php');
             }
         ?>
      </div>
