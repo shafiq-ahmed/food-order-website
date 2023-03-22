@@ -3,6 +3,15 @@
     <div class="wrapper">
         <h1>Add Category</h1>
         <br>
+        <?php 
+        
+        if(isset($_SESSION['no-title']))
+        {   
+            echo $_SESSION['no-title'].'<br>';
+            unset($_SESSION['no-title']);
+        }
+            
+    ?>
         <form action="" method="post">
             <table class="tbl-30">
                 <tr>
@@ -42,6 +51,11 @@
         <?php
             if(isset($_POST['add-category']))
             {
+                if(empty($_POST['title']))
+                {
+                    $_SESSION['no-title']='<h3>Title cannot be empty</h3>';
+                    header('location:'.SITEURL.'admin/add-category.php');
+                }
                 echo $title=$_POST['title'];
                 echo $isFeatured=$_POST['featured'];
                 echo $isActive=$_POST['active'];

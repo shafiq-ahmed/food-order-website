@@ -1,5 +1,5 @@
 
-        <?php include "partials/menu.php"?>
+<?php include "partials/menu.php"?>
         <!-- Main content Starts -->
         <div class="main-content">
             <div class="wrapper">
@@ -26,4 +26,4 @@
         </div>
         <!-- Main content Ends -->
 
-        <?php include "partials/footer.php"?>
+<?php include "partials/footer.php"?>
