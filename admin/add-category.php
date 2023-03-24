@@ -55,19 +55,33 @@
         <?php
             if(isset($_POST['add-category']))
             {
+                //check if title is empty
+                //if yes then redirect
                 if(empty($_POST['title']))
                 {
                     $_SESSION['no-title']='<h3>Title cannot be empty</h3>';
                     header('location:'.SITEURL.'admin/add-category.php');
                 }
 
+                //check if image has been chosen
+                //if not then leave image field empty on database
                 if(isset($_FILES['image']['name']))
                 {
                     $imageName=$_FILES['image']['name'];
+
+                    //rename the imagename
+                    //get the extension
+                    $ext=end(explode('.',$imageName));
+
+                    //renaming the image
+                    $imageName='Food_Category_'.rand(000,999).'.'.$ext;
                     $sourcePath=$_FILES['image']['tmp_name'];
                     $destinationPath="../images/category/".$imageName;
-                    $upload=move_uploaded_file($sourcePath,$destinationPath);
 
+                    //take the file from the source and place it on the destination folder
+                    $upload=move_uploaded_file($sourcePath,$destinationPath);
+                    
+                    //if moving file failed then redirect to same page
                     if($upload==false)
                     {
                         $_SESSION['upload']="<h3>The file could not be uploaded</h3>";
