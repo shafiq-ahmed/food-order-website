@@ -129,3 +129,12 @@ table tr td{
     margin: 5% auto;
     padding: 2%;
 }
+.danger{
+    color:  #ff6348;
+}
+.secondary{
+    color: #2ed573;
+}
+.primary{
+    color: #1e90ff;
+}

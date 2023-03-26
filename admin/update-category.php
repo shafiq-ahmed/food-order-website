@@ -34,7 +34,7 @@
 
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name="add-category" class="btn-secondary" value="Add Category">
+                        <input type="submit" name="add-category" class="btn-secondary" value="Update Category">
 
                     </td>
                     

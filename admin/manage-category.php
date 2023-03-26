@@ -20,6 +20,7 @@
                         <th>Title</th>
                         <th>Featured</th>
                         <th>Active</th>
+                        <th>Image</th>
                         <th>Actions</th>
                     </tr>
                     <?php 
@@ -35,6 +36,7 @@
                                 $featured=$row['featured'];
                                 $active=$row['active'];
                                 $id=$row['id'];
+                                $imageName=$row['image_name'];
                             
                     ?>
                     <tr>
@@ -43,6 +45,17 @@
                         <td><?php echo $featured;?></td>
                         <td><?php echo $active;?></td>
                         <td>
+                            <?php 
+                                if($imageName=="")
+                                {
+                                    echo "<div class='danger'>No Image Added</div>"
+                                    ?><?php
+                                }else
+                                {
+                            ?>
+                            <img src="<?php echo CATEGORY_IMAGE_SOURCE.$imageName;?>" width="100px"> </td>
+                            <?php } ?>
+                        <td>
                             <a href="<?php echo SITEURL.'admin/update-category.php?id='.$id;?>" class="btn-secondary">Update Category</a> 
                             <a href="#" class="btn-danger">Delete Category</a>
                         </td>
@@ -50,6 +63,7 @@
                     <?php 
                             }
                         }
+                        
                     ?>
                     
                 </table>
