@@ -57,7 +57,7 @@
                             <?php } ?>
                         <td>
                             <a href="<?php echo SITEURL.'admin/update-category.php?id='.$id;?>" class="btn-secondary">Update Category</a> 
-                            <a href="#" class="btn-danger">Delete Category</a>
+                            <a href="<?php echo SITEURL.'admin/delete-category.php?id='.$id.'&image_name='.$imageName;?>" class="btn-danger">Delete Category</a>
                         </td>
                     </tr>
                     <?php 

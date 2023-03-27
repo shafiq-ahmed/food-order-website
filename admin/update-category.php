@@ -25,14 +25,14 @@
                 <tr>
                     <td>Title</td>
                     <td>:</td>
-                    <td><input type="text" name="title" placeholder="<?php echo $title;?>" ></td>
+                    <td><input type="text" name="title" value="<?php echo $title;?>" ></td>
                 </tr>
 
                 <tr>
                     <td>Image</td>
                     <td>:</td>
                     <td><img src="<?php echo CATEGORY_IMAGE_SOURCE.$imageName?>" width='100px'></td><br>
-                    <td><input type="file" name="image"></td>
+                    <td><input type="file" name="image" value="<?php echo CATEGORY_IMAGE_SOURCE.$imageName?>"></td>
                 </tr>
 
                 <tr>
@@ -66,9 +66,19 @@
         <?php
             if(isset($_POST['add-category']))
             {
-                echo $title=$_POST['title'];
-                echo $featured=$_POST['featured'];
-                echo $active=$_POST['active'];
+                //if title is empty redirect to current page with id
+                if(empty($_POST['title']))
+                {
+                    $_SESSION['no-title']='<h3>Title cannot be empty</h3>';
+                    header('location:'.SITEURL.'admin/update-category.php?id='.$id);
+                }
+                echo $title.'<br>';
+                echo $featured=$_POST['featured'].'<br>';
+                echo $active=$_POST['active'].'<br>';
+                if(isset($_POST['image']['name']))
+                {
+                    echo $image=$_POST['image']['name'];
+                }
             }
         ?>
      </div>
