@@ -25,7 +25,7 @@
                 <tr>
                     <td>Title</td>
                     <td>:</td>
-                    <td><input type="text" name="title" placeholder="<?php echo $title;?>" value="<?php echo $title;?>"></td>
+                    <td><input type="text" name="title" placeholder="<?php echo $title;?>" ></td>
                 </tr>
 
                 <tr>
@@ -47,8 +47,8 @@
                 <tr>
                     <td>Active</td>
                     <td>:</td>
-                    <td><input type="radio" name="active" value="Yes" <?php echo ($featured=="Yes")?"Checked":""?> >Yes
-                        <input type="radio" name="active" value="No" <?php echo ($featured=="No")?"Checked":""?>>No
+                    <td><input type="radio" name="active" value="Yes" <?php echo ($active=="Yes")?"Checked":""?> >Yes
+                        <input type="radio" name="active" value="No" <?php echo ($active=="No")?"Checked":""?>>No
                     
                     </td>
                 </tr>
@@ -63,7 +63,14 @@
 
             </table>
         </form>
-        
+        <?php
+            if(isset($_POST['add-category']))
+            {
+                echo $title=$_POST['title'];
+                echo $featured=$_POST['featured'];
+                echo $active=$_POST['active'];
+            }
+        ?>
      </div>
 </div>
 <?php include "partials/footer.php";?>
