@@ -9,6 +9,11 @@
                 echo $_SESSION['add'];
                 unset($_SESSION['add']);
             }
+            if(isset($_SESSION['opMsg']))
+            {
+                echo $_SESSION['opMsg'];
+                unset($_SESSION['opMsg']);
+            }
         ?>
         </br></br>
                 <!--Add admin button -->
